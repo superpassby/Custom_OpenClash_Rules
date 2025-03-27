@@ -15,7 +15,7 @@ jobs:
         with:
           fetch-depth: 0  # 获取完整历史，防止同步冲突
 
-      - name: Sync with Upstream and Push Changes
+      - name: Sync with Upstream
         run: |
           # 配置 Git 用户
           git config --global user.name "github-actions"
@@ -32,6 +32,13 @@ jobs:
 
           # 将临时文件夹中的内容复制到当前仓库目录
           cp -r /tmp/Custom_OpenClash_Rules/* ./
+
+
+      - name: Push Changes
+        run: |
+          # 配置 Git 用户
+          #git config --global user.name "github-actions"
+          #git config --global user.email "github-actions@github.com"
 
           # 提交更改并推送到仓库的 main 分支
           git add .
