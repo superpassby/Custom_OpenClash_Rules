@@ -21,9 +21,13 @@ jobs:
           git config --global user.email "github-actions@github.com"
           git remote add upstream https://github.com/Aethersailor/Custom_OpenClash_Rules.git || true
           git fetch upstream
-          find . -mindepth 1 -maxdepth 1 \( ! -name '.github' \) -exec rm -rf {} +
-          git checkout upstream/main -- .
-          rm -rf .github
+          
+          # 删除除 .github 和 .git 以外的所有文件
+          find . -mindepth 1 -maxdepth 1 ! -name '.github' ! -name '.git' -exec rm -rf {} +
+
+          # 强制重置为 upstream/main
+          git reset --hard upstream/main
+
           git add .
           git commit -m "Sync with upstream repository" || echo "No changes to commit"
           git push origin main --force
