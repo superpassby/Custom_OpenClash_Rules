@@ -44,7 +44,7 @@ processed_content=""
 ## 单次读取处理所有规则
 while IFS= read -r line; do
     ### 处理即时通讯/社交媒体/GitHub组
-    if [[ "$line" =~ custom_proxy_group.*(自定义代理|即时通讯|社交媒体|GitHub|YouTube|Netflix|DisneyPlus|HBO|PrimeVideo|AppleTV|Spotify|国外媒体|国外电商|谷歌FCM|谷歌服务|AI服务) ]]; then
+    if [[ "$line" =~ custom_proxy_group.*(自定义代理|即时通讯|社交媒体|GitHub|YouTube|Netflix|DisneyPlus|HBO|PrimeVideo|AppleTV|Spotify|国外媒体|国外电商|谷歌FCM|谷歌服务) ]]; then
         if [[ "$line" =~ (\`\[\][^\`]*手动选择) ]]; then
             manual_select="${BASH_REMATCH[1]}"
             new_line="${line//$manual_select/}"
@@ -53,7 +53,7 @@ while IFS= read -r line; do
             fi
         fi
     ### 处理AI服务组
-    elif [[ "$line" =~ custom_proxy_group.*(ChatGPT|Copilot|AI服务|TikTok|AI服务) ]]; then
+    elif [[ "$line" =~ custom_proxy_group.*(ChatGPT|Copilot|AI服务|TikTok) ]]; then
         if [[ "$line" =~ (\`\[\][^\`]*美国节点) ]]; then
             us_node="${BASH_REMATCH[1]}"
             new_line="${line//$us_node/}"
