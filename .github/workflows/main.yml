@@ -34,6 +34,13 @@ jobs:
           cp -r /tmp/Custom_OpenClash_Rules/* ./
 
 
+      - name: DIY
+        run: |
+          # 配置 Git 用户
+          chmod +x .github/DIY
+          ./.github/DIY
+
+
       - name: Push Changes
         run: |
           # 配置 Git 用户
