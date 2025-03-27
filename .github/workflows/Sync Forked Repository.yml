@@ -10,33 +10,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Target Repository (This Repo)
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0  # 获取完整历史，防止同步冲突
-
-      - name: Add Upstream Remote and Fetch Changes
-        run: |
-          git remote add upstream https://github.com/Aethersailor/Custom_OpenClash_Rules.git || true
-          git fetch upstream
-
-      - name: Backup .github Folder
-        run: |
-          cp -r .github /tmp/github_backup
-
-      - name: Reset to Upstream Main
-        run: |
-          git checkout main
-          git reset --hard upstream/main
-
-      - name: Restore .github Folder
-        run: |
-          cp -r /tmp/github_backup .github
-
-      - name: Commit and Push Changes
+      - name: Sync with Upstream (Exclude .github)
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
+          git remote add upstream https://github.com/Aethersailor/Custom_OpenClash_Rules.git || true
+          git fetch upstream
+          find . -mindepth 1 -maxdepth 1 \ \( ! -name '.github' \) -exec rm -rf {} +
+          git checkout upstream/main -- .
+          rm -rf .github
           git add .
           git commit -m "Sync with upstream repository" || echo "No changes to commit"
-          git push origin main
+          git push origin main --force
