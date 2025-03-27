@@ -25,8 +25,9 @@ jobs:
           # 删除除 .github 和 .git 以外的所有文件
           find . -mindepth 1 -maxdepth 1 ! -name '.github' ! -name '.git' -exec rm -rf {} +
 
-          # 强制重置为 upstream/main
-          git reset --hard upstream/main
+          # 强制重置为 upstream/main（排除 .github）
+          git checkout upstream/main -- .
+          rm -rf .github
 
           git add .
           git commit -m "Sync with upstream repository" || echo "No changes to commit"
