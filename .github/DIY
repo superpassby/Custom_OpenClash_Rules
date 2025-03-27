@@ -1,5 +1,6 @@
 cp ./cfg/Custom_Clash.ini ./
 file="Custom_Clash.ini"
+mainland_file="Custom_Clash_Mainland.ini"
 
 # 在 [custom] 下一行插入两行规则
 sed -i '/^\[custom\]/a ruleset=🎯 自定义直连,https://raw.githubusercontent.com/Super-Passerby/Custom_OpenClash_Rules/refs/heads/main/.github/MyRule/Direct.list,28800' ./Custom_Clash.ini
@@ -22,7 +23,8 @@ found=0
 while IFS= read -r line; do
     content+="$line"$'\n'
     # 匹配自动选择行后，在其下方插入两行
-    if [[ "$line" =~ custom_proxy_group.*自动选择 ]]; then
+    #if [[ "$line" =~ custom_proxy_group.*自动选择 ]]; then
+    if [[ "$line" =~ custom_proxy_group.*自动选择\`url-test ]]; then
         content+="$custom_line"$'\n'
         content+="$direct_line"$'\n'
         found=1
@@ -74,4 +76,8 @@ done < "$file"
 }
 
 
+# 生成 "Custom_Clash_Mainland.ini"
 
+## 执行替换并写入新文件
+sed 's|https://raw.githubusercontent.com|https://gh-proxy.com/https://raw.githubusercontent.com|g' \
+    "$file" > "$mainland_file"
