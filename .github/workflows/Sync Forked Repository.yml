@@ -1,33 +1,47 @@
-name: Sync Forked Repository
-
+name: Sync with upstream repository
 on:
   schedule:
-    - cron: '0 0 * * *'  # 每天午夜同步
-  workflow_dispatch:  # 允许手动触发
+    - cron: '0 3 * * *'
+  workflow_dispatch:
 
 jobs:
-  sync-repo:
+  sync:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout Target Repository (This Repo)
+      - name: Checkout current repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # 获取完整历史，防止同步冲突
+          fetch-depth: 0
 
-      - name: Add Upstream Remote
+      - name: Configure Git
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+
+      - name: Add upstream repository
         run: |
           git remote add upstream https://github.com/Aethersailor/Custom_OpenClash_Rules.git
           git fetch upstream
 
-      - name: Sync Changes (Exclude .github Folder)
-        run: |
-          rsync -av --delete --exclude='.github' --exclude='.git' upstream/main/ ./
+      - name: Create temporary directory for upstream content
+        run: mkdir -p upstream_content
 
-      - name: Commit and Push Changes
+      - name: Checkout upstream content
         run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "github-actions@github.com"
-          git add .
-          git commit -m "Sync with upstream repository" || echo "No changes to commit"
+          git --work-tree=upstream_content checkout upstream/main -- .
+          
+      - name: Sync changes (excluding .github and .git)
+        run: |
+          rsync -av --delete \
+            --exclude='.github' \
+            --exclude='.git' \
+            upstream_content/ .
+          
+      - name: Clean up
+        run: rm -rf upstream_content
+
+      - name: Commit and push changes
+        run: |
+          git add -A
+          git commit -m "Sync with upstream (exclude .github folder)" --allow-empty
           git push origin main
