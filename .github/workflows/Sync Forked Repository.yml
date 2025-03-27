@@ -15,14 +15,23 @@ jobs:
         with:
           fetch-depth: 0  # 获取完整历史，防止同步冲突
 
-      - name: Add Upstream Remote
+      - name: Add Upstream Remote and Fetch Changes
         run: |
-          git remote add upstream https://github.com/Aethersailor/Custom_OpenClash_Rules.git
+          git remote add upstream https://github.com/Aethersailor/Custom_OpenClash_Rules.git || true
           git fetch upstream
 
-      - name: Sync Changes (Exclude .github Folder)
+      - name: Backup .github Folder
         run: |
-          rsync -av --delete --exclude='.github' --exclude='.git' upstream/main/ ./
+          cp -r .github /tmp/github_backup
+
+      - name: Reset to Upstream Main
+        run: |
+          git checkout main
+          git reset --hard upstream/main
+
+      - name: Restore .github Folder
+        run: |
+          cp -r /tmp/github_backup .github
 
       - name: Commit and Push Changes
         run: |
