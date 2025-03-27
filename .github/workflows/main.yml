@@ -25,11 +25,14 @@ jobs:
           # 删除除 .github 和 .git 以外的所有文件
           find . -mindepth 1 -maxdepth 1 ! -name '.github' ! -name '.git' -exec rm -rf {} +
 
-          # 同步其他内容（排除 .github 文件夹）
+          # 同步其他文件，但排除 .github 文件夹
           git checkout upstream/main -- .
 
-          # 保证 .github 文件夹保持不变
+          # 恢复本地的 .github 文件夹，确保不被同步影响
           git checkout -- .github
+
+          # 确保 .github 文件夹的内容不被同步到 GitHub
+          git rm -r --cached .github
 
           git add .
           git commit -m "Sync with upstream repository" || echo "No changes to commit"
