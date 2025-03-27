@@ -44,7 +44,7 @@ processed_content=""
 ## 单次读取处理所有规则
 while IFS= read -r line; do
     ### 处理即时通讯/社交媒体/GitHub组
-    if [[ "$line" =~ custom_proxy_group.*(自定义代理|即时通讯|社交媒体|GitHub|YouTube|Netflix|DisneyPlus|HBO|PrimeVideo|AppleTV|Spotify|国外媒体|国外电商|谷歌FCM|谷歌服务) ]]; then
+    if [[ "$line" =~ custom_proxy_group.*(自定义代理|即时通讯|社交媒体|GitHub|YouTube|Netflix|DisneyPlus|HBO|PrimeVideo|AppleTV|Spotify|国外媒体|国外电商|谷歌FCM|谷歌服务|漏网之鱼) ]]; then
         if [[ "$line" =~ (\`\[\][^\`]*手动选择) ]]; then
             manual_select="${BASH_REMATCH[1]}"
             new_line="${line//$manual_select/}"
