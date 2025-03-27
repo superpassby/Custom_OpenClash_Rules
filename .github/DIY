@@ -2,6 +2,9 @@ cp ./cfg/Custom_Clash.ini ./
 file="Custom_Clash.ini"
 mainland_file="Custom_Clash_Mainland.ini"
 
+# 在首行插入注释
+sed -i '1i;https://raw.githubusercontent.com/Super-Passerby/Custom_OpenClash_Rules/refs/heads/main/Custom_Clash_Mainland.ini' ./Custom_Clash.ini
+
 # 在 [custom] 下一行插入两行规则
 sed -i '/^\[custom\]/a ruleset=🎯 自定义直连,https://raw.githubusercontent.com/Super-Passerby/Custom_OpenClash_Rules/refs/heads/main/.github/MyRule/Direct.list,28800' ./Custom_Clash.ini
 sed -i '/^\[custom\]/a ruleset=🎯 自定义代理,https://raw.githubusercontent.com/Super-Passerby/Custom_OpenClash_Rules/refs/heads/main/.github/MyRule/Proxy.list,28800' ./Custom_Clash.ini
