@@ -57,7 +57,7 @@ jobs:
         with:
           token: ${{ github.token }}
           repository: ${{ github.repository }}
-          retain_days: 0  # 立即删除达到保留天数的 runs
-          keep_minimum_runs: 0  # 保留的最少 runs
+          retain_days: 1  # 立即删除达到保留天数的 runs
+          keep_minimum_runs: 12  # 保留的最少 runs
           #delete_workflow_pattern: Clean Repository.yml
           delete_run_by_conclusion_pattern: "action_required,cancelled,failure,skipped,success"
