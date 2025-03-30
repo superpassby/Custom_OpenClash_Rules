@@ -20,7 +20,7 @@ speedtest_line=$(grep -E 'custom_proxy_group.*测速工具' "$file")
 #custom_line="${speedtest_line//测速工具/自定义代理}"
 custom_line=$(echo "$speedtest_line" | sed 's/custom_proxy_group=.*测速工具/custom_proxy_group=🎯 自定义直连/')
 #direct_line="${speedtest_line//测速工具/自定义直连}"
-direct_line=$(echo "$speedtest_line" | sed 's/custom_proxy_group=.*测速工具/custom_proxy_group=✈️ 自定义直连/')
+direct_line=$(echo "$speedtest_line" | sed 's/custom_proxy_group=.*测速工具/custom_proxy_group=✈️ 自定义代理/')
 
 ## 直接修改文件
 content=""
