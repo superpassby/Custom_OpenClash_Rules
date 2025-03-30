@@ -2,7 +2,7 @@ name: Sync Forked Repository
 
 on:
   schedule:
-    - cron: '7 * * * *'  # 每小时的第 7 分钟执行
+    - cron: '7 */4 * * *'  # 每 4 个小时的第 7 分钟执行
   workflow_dispatch:  # 允许手动触发
 
 jobs:
