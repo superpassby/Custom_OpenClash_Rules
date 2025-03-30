@@ -6,8 +6,8 @@ mainland_file="Custom_Clash_Mainland.ini"
 sed -i '1i;https://raw.githubusercontent.com/superpassby/Custom_OpenClash_Rules/refs/heads/main/Custom_Clash_Mainland.ini' ./Custom_Clash.ini
 
 # 在 [custom] 下一行插入两行规则
-sed -i '/^\[custom\]/a ruleset=🚀 自定义直连,https://raw.githubusercontent.com/superpassby/Custom_OpenClash_Rules/refs/heads/main/.github/MyRule/Direct.list,28800' ./Custom_Clash.ini
-sed -i '/^\[custom\]/a ruleset=🚀 自定义代理,https://raw.githubusercontent.com/superpassby/Custom_OpenClash_Rules/refs/heads/main/.github/MyRule/Proxy.list,28800' ./Custom_Clash.ini
+sed -i '/^\[custom\]/a ruleset=🎯 自定义直连,https://raw.githubusercontent.com/superpassby/Custom_OpenClash_Rules/refs/heads/main/.github/MyRule/Direct.list,28800' ./Custom_Clash.ini
+sed -i '/^\[custom\]/a ruleset=✈️ 自定义代理,https://raw.githubusercontent.com/superpassby/Custom_OpenClash_Rules/refs/heads/main/.github/MyRule/Proxy.list,28800' ./Custom_Clash.ini
 
 # 替换指定的 Speedtest.list 地址
 sed -i 's|https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Speedtest/Speedtest.list|https://raw.githubusercontent.com/superpassby/Custom_OpenClash_Rules/refs/heads/main/.github/MyRule/Speedtest.list|' ./Custom_Clash.ini
@@ -17,8 +17,10 @@ sed -i 's|https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/
 speedtest_line=$(grep -E 'custom_proxy_group.*测速工具' "$file")
 [ -z "$speedtest_line" ] && { echo "未找到测速工具行"; exit 1; }
 
-custom_line="${speedtest_line//测速工具/自定义代理}"
-direct_line="${speedtest_line//测速工具/自定义直连}"
+#custom_line="${speedtest_line//测速工具/自定义代理}"
+custom_line=$(echo "$speedtest_line" | sed 's/custom_proxy_group=.*测速工具/custom_proxy_group=🎯 自定义直连/')
+#direct_line="${speedtest_line//测速工具/自定义直连}"
+direct_line=$(echo "$speedtest_line" | sed 's/custom_proxy_group=.*测速工具/custom_proxy_group=✈️ 自定义直连/')
 
 ## 直接修改文件
 content=""
