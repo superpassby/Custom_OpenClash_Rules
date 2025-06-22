@@ -16,6 +16,8 @@ jobs:
           fetch-depth: 0  # 获取完整历史，防止同步冲突
 
       - name: Sync with Upstream
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           # 配置 Git 用户
           git config --global user.name "github-actions"
@@ -25,7 +27,8 @@ jobs:
           find . -mindepth 1 -maxdepth 1 ! -name '.git' ! -name '.github' -exec rm -rf {} +
 
           # 克隆上游仓库到临时文件夹
-          git clone https://github.com/Aethersailor/Custom_OpenClash_Rules.git /tmp/Custom_OpenClash_Rules
+          # git clone https://github.com/Aethersailor/Custom_OpenClash_Rules.git /tmp/Custom_OpenClash_Rules
+          git clone https://$GH_TOKEN@github.com/Aethersailor/Custom_OpenClash_Rules.git /tmp/Custom_OpenClash_Rules
 
           # 删除临时文件夹中的 .github 等隐藏文件夹
           rm -rf /tmp/Custom_OpenClash_Rules/.github
