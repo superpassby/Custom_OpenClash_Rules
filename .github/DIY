@@ -24,7 +24,7 @@ sed -i '/custom_proxy_group.*其他地区/s/港|/百慕达|BM|港|Cloudflare|CF|
 sed -i '/^custom_proxy_group=.*即时通讯`select/ s/`\[\]♻️ 自动选择/`\[\]♻️ 自动选择`\[\]🎯 全球直连`\[\]☁️ CF节点`\[\]🇧🇲 百慕达节点/' ./Custom_Clash.ini
 
 
-sed -i '/^custom_proxy_group=🇨🇦 加拿大节点\|^custom_proxy_group=🇬🇧 英国节点\|^custom_proxy_group=🇫🇷 法国节点\|^custom_proxy_group=🇩🇪 德国节点\|^custom_proxy_group=🇳🇱 荷兰节点\|^custom_proxy_group=🇹🇷 土耳其节点/ s/^/; /' ./Custom_Clash.ini
+sed -i '/^custom_proxy_group=🇨🇦 加拿大节点\|^custom_proxy_group=🇬🇧 英国节点\|^custom_proxy_group=🇫🇷 法国节点\|^custom_proxy_group=🇩🇪 德国节点\|^custom_proxy_group=🇳🇱 荷兰节点\|^custom_proxy_group=🇹🇷 土耳其节点/ s/^/;/' ./Custom_Clash.ini
 
 
 
