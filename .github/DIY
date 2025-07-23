@@ -91,31 +91,6 @@ done < "$file"
     exit 1
 }
 
-
-
-
-# 删除 custom_proxy_group 行中 `.开头` 的所有节点（从 `.开头` 到行尾）
-stripped_content=""
-while IFS= read -r line; do
-    if [[ "$line" =~ ^custom_proxy_group=.*(自定义代理|即时通讯|社交媒体|GitHub|YouTube|Netflix|DisneyPlus|HBO|PrimeVideo|AppleTV|Spotify|国外媒体|国外电商|谷歌FCM|谷歌服务|漏网之鱼) ]]; then
-        # 删除 `.* 匹配部分（注意保留前面的内容）
-        line="${line%%\`.*}"
-    fi
-    stripped_content+="$line"$'\n'
-done < "$file"
-
-# 覆盖原文件
-{
-    printf "%s" "$stripped_content" > "$file"
-    echo "✅ 已删除匹配行中的 \`.* 内容，剩余 ${#stripped_content} 字节"
-} || {
-    echo "❌ 写入失败，请检查权限" >&2
-    exit 1
-}
-
-
-
-
 # 生成 "Custom_Clash_Mainland.ini"
 
 ## 执行替换并写入新文件
