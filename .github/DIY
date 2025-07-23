@@ -105,3 +105,7 @@ sed -i '/^custom_proxy_group=.*自定义代理`select/ s/`\[\]🎯 全球直连/
 ## 执行替换并写入新文件
 sed 's|https://raw.githubusercontent.com|https://gh-proxy.com/https://raw.githubusercontent.com|g' \
     "$file" > "$mainland_file"
+
+
+# 其他节点
+mkdir -p ./节点资源 && wget -O ./节点资源/顺丰资源.yaml "https://drive.google.com/uc?export=download&id=1s19pHiEOUOasmtGPHrSLewtUBeEi2Wim"
