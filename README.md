@@ -226,7 +226,7 @@ https://api.asailor.org/sub
 - 🆓 支持试用
 - 💬 工单支持简体中文沟通且客服反应迅速
 
-注册链接：[SSRDOG 注册](https://st1.hosbb.com/#/register?code=FnSb4oWM)  (链接包含 aff 信息，感谢支持！)
+注册链接：[SSRDOG 注册](https://st1.hosbb.com/#/register?code=FnSb4oWM)  (链接包含 aff 代码，感谢支持！介意 aff 可自行去除代码)
 
 本项目订阅模板的节点地区分类即参考了该机场的节点地区进行分类。
 
@@ -282,6 +282,9 @@ Traffic、GB、Expire
 
 ### ⚡ 加速规则
 - [521xueweihan/GitHub520](https://github.com/521xueweihan/GitHub520)
+
+### 🔄 订阅转换后端
+- [asdlokj1qpi233/subconverter](https://github.com/asdlokj1qpi233/subconverter)
 
 ### 🔖 其他
 - [immortalwrt/user-FAQ](https://github.com/immortalwrt/user-FAQ/)
