@@ -1,7 +1,7 @@
 # Generated from rule/Custom_Direct.list
 # REPO: https://github.com/Aethersailor/Custom_OpenClash_Rules
 # SOURCE: https://github.com/Aethersailor/Custom_OpenClash_Rules/blob/main/rule/Custom_Direct.list
-# TOTAL: 209
+# TOTAL: 217
 
 payload:
   - '*quickconnect*'
@@ -34,6 +34,7 @@ payload:
   - '+.bsbsb.top'
   - '+.centbrowser.net'
   - '+.cg3da.com'
+  - '+.chaxunjiao.com'
   - '+.chaz.fun'
   - '+.checkip.dyndns.org'
   - '+.checkipv6.dyndns.org'
@@ -64,6 +65,7 @@ payload:
   - '+.epg.v1.mk'
   - '+.ffhome.com'
   - '+.flingtrainer.com'
+  - '+.fofuai.com'
   - '+.fowep.com'
   - '+.freetv.top'
   - '+.frp-ski.com'
@@ -117,6 +119,7 @@ payload:
   - '+.ip6.seeip.org'
   - '+.ipapi.co'
   - '+.ipinfo.io'
+  - '+.ipshu.com'
   - '+.istoreos.com'
   - '+.jsdelivr.net'
   - '+.jxjktzjt.com'
@@ -140,7 +143,9 @@ payload:
   - '+.msftncsi.com'
   - '+.mslmc.net'
   - '+.mtaokj.com'
+  - '+.mykuaidi.com'
   - '+.myshopex.com'
+  - '+.naixi.com'
   - '+.nn.ci'
   - '+.nxog.top'
   - '+.ok321.top'
@@ -159,6 +164,7 @@ payload:
   - '+.powershellgallery.com'
   - '+.qianuni.com'
   - '+.qiaoxuesi.com'
+  - '+.qinglue.com'
   - '+.registry.dockermirror.com'
   - '+.rewards.bing.com'
   - '+.rsfcxq.com'
@@ -180,6 +186,7 @@ payload:
   - '+.tangguobaohe.com'
   - '+.tcy365.net'
   - '+.thinkerride.com'
+  - '+.tool56.com'
   - '+.tumukaoyan.com'
   - '+.tuxing.art'
   - '+.u-carloan.com'
@@ -197,6 +204,7 @@ payload:
   - '+.wewillpro.com'
   - '+.wlcdn88.com'
   - '+.wwwh.eu.org'
+  - '+.xbgjw.com'
   - '+.xdqtech.com'
   - '+.xiankabao.com'
   - '+.xiaochuanyun.com'
