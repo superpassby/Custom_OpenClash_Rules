@@ -1,5 +1,4 @@
-#DOMAIN-SUFFIX,speed.dler.io
-#DOMAIN-KEYWORD,speedtest
+# https://testingcf.jsdelivr.net/gh/superpassby/Custom_OpenClash_Rules@main/.github/MyRule/Proxy.list
 DOMAIN-SUFFIX,hanime1.me
 DOMAIN-KEYWORD,hentai
 DOMAIN-KEYWORD,jable
@@ -10,7 +9,6 @@ DOMAIN-KEYWORD,moontv
 DOMAIN-KEYWORD,rou
 DOMAIN-KEYWORD,v.rn
 DOMAIN-KEYWORD,xyz
-# DOMAIN-KEYWORD,mushroomtrack
 DOMAIN-KEYWORD,xchina
 DOMAIN-KEYWORD,mm
 DOMAIN-SUFFIX,packages.microsoft.com
