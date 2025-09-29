@@ -1,3 +1,4 @@
+# https://testingcf.jsdelivr.net/gh/superpassby/Custom_OpenClash_Rules@main/.github/MyRule/Direct.list
 #DOMAIN-SUFFIX,speed.dler.io
 #DOMAIN-KEYWORD,speedtest
 SRC-IP-CIDR,10.10.10.22/32
